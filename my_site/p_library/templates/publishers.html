@@ -1,0 +1,15 @@
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+
+{% for publisher in publishers %}
+    <ul class="list-group">
+        <li class="list-group-item">
+            {{ publisher.name }}
+            <ul class="list-group">
+                {% for book in publisher.books.all %}
+                    <li class="list-group-item"> {{ book.title }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+{% endfor %}
